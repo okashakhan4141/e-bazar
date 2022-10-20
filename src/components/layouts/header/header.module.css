@@ -1,0 +1,13 @@
+.container {
+  justify-content: center;
+}
+
+.logo {
+  width: 203px;
+  height: 72px;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+}

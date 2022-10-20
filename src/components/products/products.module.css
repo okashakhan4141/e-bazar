@@ -1,0 +1,31 @@
+.productContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  color: #3a003d;
+}
+
+.desc {
+  color: rgb(172, 168, 168);
+  /* margin: 3px 0; */
+  padding: 3px 0;
+  height: 40px;
+}
+
+.price {
+  color: #ff5a19;
+  display: flex;
+  align-items: center;
+}
+
+.discount {
+  text-decoration: line-through;
+  margin: 0 3px;
+}
+
+.discountedPrice {
+  color: rgb(155, 151, 151);
+}
