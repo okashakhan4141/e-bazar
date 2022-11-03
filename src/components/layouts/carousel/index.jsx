@@ -14,7 +14,10 @@ const Slider = props => {
         >
           <div
             className={styles.img}
-            style={{ backgroundImage: `url(${item.image})` }}
+            style={{
+              backgroundImage: `url(${item.image})`,
+              backgroundSize: `${props.imageSize}`,
+            }}
           ></div>
           {item.name && item.desc && (
             <div className={styles.desc}>

@@ -1,0 +1,1 @@
+export const formatCategoryName = (category) => category.toString().replaceAll(' ', '-');

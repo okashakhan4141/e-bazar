@@ -8,9 +8,18 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { CardActionArea } from '@mui/material';
 import styles from './card.module.css';
 
+import { useHistory } from 'react-router-dom';
+
 export default function ProductCard(props) {
+  const history = useHistory();
+
   const addToCart = () => {
     console.log('addtocart!');
+  };
+
+  const showProductDetails = () => {
+    console.log(54);
+    history.push('/home/products/detail/buguUGuyfYUFtdrY645ju');
   };
 
   return (
@@ -21,7 +30,7 @@ export default function ProductCard(props) {
         image={props.image}
         alt="Product"
       />
-      <CardActionArea>
+      <CardActionArea onClick={showProductDetails}>
         <CardContent sx={{ height: 122 }}>{props.children}</CardContent>
       </CardActionArea>
       <CardActions sx={{ height: '50px' }}>

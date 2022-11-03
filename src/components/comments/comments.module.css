@@ -1,0 +1,23 @@
+.rating {
+  font-weight: bold;
+  font-size: 50px;
+  margin: 10px 5px;
+}
+
+.ratingTotal {
+  font-size: 30px;
+  color: #b5babf;
+}
+
+.ratingCount {
+  color: #808080;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  margin: 15px 0;
+}

@@ -1,0 +1,20 @@
+.totalAmount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.cartItemTitle {
+  font-weight: bold;
+  font-size: larger;
+  color: #3a003d;
+}

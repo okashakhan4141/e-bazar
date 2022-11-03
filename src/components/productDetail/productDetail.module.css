@@ -1,0 +1,32 @@
+.container {
+  height: 500px;
+  display: flex;
+}
+
+.image {
+  width: 60%;
+  padding: 5px;
+  cursor: zoom-in;
+}
+
+.details {
+  width: 40%;
+  padding: 5px;
+}
+
+.currency {
+  font-weight: bold;
+  font-size: 35px;
+  color: #ff5a19;
+}
+
+.price {
+  font-size: 25px;
+  color: #808081;
+}
+
+.quantity {
+  font-size: 15px;
+  font-weight: bold;
+  color: #3a003d;
+}

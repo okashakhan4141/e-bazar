@@ -64,6 +64,10 @@ export const carouselData = [
         name: 'Slider 3',
         desc: 'Some representative placeholder content for the first slide.',
         image: 'https://cdn.shopify.com/s/files/1/2726/4990/files/best-briefcases-for-lawyers.jpg?v=1653296374'
+    }, {
+        name: 'Slider 4',
+        desc: 'Some representative placeholder content for the first slide.',
+        image: 'https://static.esrgear.com/blog/wp-content/uploads/2022/09/47640-98874-iPhone-14-Pro-Colors-xl.jpg'
     }
 ]
 
@@ -75,3 +79,102 @@ export const categories = {
     'health & beuty': ['Makeup', 'Hair Care', 'Mens Care', 'Skin Care'],
     sports: ['Bat', 'Ball', 'Wicket', 'Kit']
 }
+
+export const bread = [
+    {
+        name: 'Home',
+        route: '/home'
+    }
+]
+
+export const cart = {
+    totalAmount: 30,
+    totalQuantity: 3,
+    items: [
+        {
+            product: {
+                name: 'TCL Smart TV',
+                image: 'https://www.tclpakistan.com/media/wysiwyg/eisac835.jpg',
+                desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                price: 10,
+                category: 'Fashion'
+            },
+            quantity: 2
+        },
+        {
+            product: {
+                name: `Levi's Men`,
+                image: 'https://cdn.thewirecutter.com/wp-content/media/2021/05/mensjeans-2048px-4017.jpg?auto=webp&quality=75&width=1024',
+                desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                price: 10,
+                category: 'Fashion'
+            },
+            quantity: 1
+        }
+    ],
+}
+
+export const faqs = [
+    {
+        question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex?',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.'
+    },
+    {
+        question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex?',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.'
+    },
+    {
+        question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex?',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.'
+    }
+]
+
+export const comments = [
+    {
+        user: {
+            name: 'Okasha Khan',
+        },
+        date: 'OCT 20, 2022',
+        comment: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur unde suscipit, quam beatae rerum inventore
+        consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+        fugiat deleniti? Eum quasi quidem quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur unde suscipit, quam beatae rerum inventore
+        consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+        fugiat deleniti? Eum quasi quidem quibusdam.`,
+        rating: 4
+    },
+    {
+        user: {
+            name: 'Okasha Khan',
+        },
+        date: 'OCT 20, 2022',
+        comment: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur unde suscipit, quam beatae rerum inventore
+        consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+        fugiat deleniti? Eum quasi quidem quibusdam.`,
+        rating: 4.5
+    },
+    {
+        user: {
+            name: 'Okasha Khan',
+        },
+        date: 'OCT 20, 2022',
+        comment: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur unde suscipit, quam beatae rerum inventore
+        consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+        fugiat deleniti? Eum quasi quidem quibusdam.`,
+        rating: 3
+    },
+    {
+        user: {
+            name: 'Okasha Khan',
+        },
+        date: 'OCT 20, 2022',
+        comment: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+        blanditiis tenetur unde suscipit, quam beatae rerum inventore
+        consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+        fugiat deleniti? Eum quasi quidem quibusdam.`,
+        rating: 5
+    }
+]

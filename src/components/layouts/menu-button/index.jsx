@@ -3,15 +3,30 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
+import { useHistory } from 'react-router-dom';
+import { formatCategoryName } from '../../../utils/helpers';
+
 export default function BasicMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const history = useHistory();
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = index => {
     setAnchorEl(null);
+
+    if (typeof index != 'number') return;
+    // console.log(index);
+
+    history.push(
+      `/home/products/${formatCategoryName(
+        props.category
+      )}?id=XYF&fvyFtdTxUTcUTcyuyuV${
+        index == -1 ? '' : '&subCategory=GYTfFTFTFFTcFCFCftftft'
+      }`
+    );
   };
 
   return (
@@ -35,12 +50,19 @@ export default function BasicMenu(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
+        <MenuItem
+          sx={{ width: '180px' }}
+          color="secondary"
+          onClick={() => handleClose(-1)}
+        >
+          {'All'}
+        </MenuItem>
         {props.subCategories.map((item, i) => (
           <MenuItem
             sx={{ width: '180px' }}
             color="secondary"
             key={i}
-            onClick={handleClose}
+            onClick={() => handleClose(i)}
           >
             {item}
           </MenuItem>

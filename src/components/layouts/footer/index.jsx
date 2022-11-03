@@ -6,10 +6,22 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import IconButton from '@mui/material/IconButton';
 
+import { useHistory } from 'react-router-dom';
+
 const Footer = props => {
+  const history = useHistory();
+  const goToHome = () => {
+    history.push('/home');
+  };
   return (
     <div className={styles.container}>
-      <img className={styles.logo} src={logo} alt="" />
+      <img
+        style={{ cursor: 'pointer' }}
+        onClick={goToHome}
+        className={styles.logo}
+        src={logo}
+        alt=""
+      />
       <Divider
         sx={{ backgroundColor: 'white', width: '70%', margin: '20px' }}
       ></Divider>
