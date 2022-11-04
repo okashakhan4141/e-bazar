@@ -29,46 +29,47 @@ import BasicMenu from '../menu-button';
 import FilterAltRoundedIcon from '@mui/icons-material/FilterAltRounded';
 import { useHistory } from 'react-router-dom';
 import Cart from '../../cart';
+import SearchBar from './searchBar';
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: '#3a003d', //alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    transform: 'scale(1.05)',
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
+// const Search = styled('div')(({ theme }) => ({
+//   position: 'relative',
+//   borderRadius: theme.shape.borderRadius,
+//   backgroundColor: '#3a003d', //alpha(theme.palette.common.white, 0.15),
+//   '&:hover': {
+//     transform: 'scale(1.05)',
+//   },
+//   marginRight: theme.spacing(2),
+//   marginLeft: 0,
+//   width: '100%',
+//   [theme.breakpoints.up('sm')]: {
+//     marginLeft: theme.spacing(3),
+//     width: 'auto',
+//   },
+// }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+// const SearchIconWrapper = styled('div')(({ theme }) => ({
+//   padding: theme.spacing(0, 2),
+//   height: '100%',
+//   position: 'absolute',
+//   pointerEvents: 'none',
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+// }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
+// const StyledInputBase = styled(InputBase)(({ theme }) => ({
+//   color: 'inherit',
+//   '& .MuiInputBase-input': {
+//     padding: theme.spacing(1, 1, 1, 0),
+//     // vertical padding + font size from searchIcon
+//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+//     transition: theme.transitions.create('width'),
+//     width: '100%',
+//     [theme.breakpoints.up('md')]: {
+//       width: '20ch',
+//     },
+//   },
+// }));
 
 export default function PrimarySearchAppBar() {
   const history = useHistory();
@@ -235,7 +236,8 @@ export default function PrimarySearchAppBar() {
 
             <Box sx={{ flexGrow: 1 }}></Box>
             <Box sx={{ flexGrow: 1 }}>
-              <Search>
+              <SearchBar></SearchBar>
+              {/* <Search>
                 <SearchIconWrapper>
                   <SearchIcon />
                 </SearchIconWrapper>
@@ -243,7 +245,7 @@ export default function PrimarySearchAppBar() {
                   placeholder="Search"
                   inputProps={{ 'aria-label': 'search' }}
                 />
-              </Search>
+              </Search> */}
             </Box>
             <Box sx={{ flexGrow: 1 }}></Box>
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

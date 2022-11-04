@@ -6,6 +6,7 @@ import styles from './auth.module.css';
 import logo from '../../assets/logo-text.png';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import { Divider } from '@mui/material';
 
 const SignUp = props => {
   const [codeSent, setCodeSent] = useState(false);
@@ -15,8 +16,11 @@ const SignUp = props => {
   };
 
   return (
-    <Paper className={styles.signupContainer}>
+    <Paper elevation={10} className={styles.signupContainer}>
       <img className={styles.logo} src={logo} alt="e bazar" />
+      <Divider
+        sx={{ backgroundColor: '#ff5a19', width: '80%', margin: '0 0 20px 0' }}
+      ></Divider>
       <p className={styles.sectionText}>* Basic Information *</p>
       <div className={styles.signup}>
         <TextField
