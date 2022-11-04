@@ -15,11 +15,11 @@ const Pages = props => {
       <Route path="/" exact>
         <Redirect to="/home" />
       </Route>
-      <Route path="/auth" exact>
-        <Auth />;
+      <Route path="/auth">
+        <Auth />
       </Route>
       <Route path="/home" exact>
-        <Home />;
+        <Home />
       </Route>
       <Route path="/home/products/:category" exact>
         <Categories />

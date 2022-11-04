@@ -1,9 +1,7 @@
+import Authentication from '../components/auth';
+
 const Auth = props => {
-  return (
-    <>
-      <p>Auth</p>
-    </>
-  );
+  return <Authentication />;
 };
 
 export default Auth;
