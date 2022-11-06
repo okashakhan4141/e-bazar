@@ -1,88 +1,34 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Avatar from '@mui/material/Avatar';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
-
 import TemporaryDrawer from './drawer';
 import { useRef } from 'react';
 import logo from '../../../assets/logo.png';
 import styles from './header.module.css';
 import { Tooltip } from '@mui/material';
-
 import { categories } from '../../../utils/dummyData';
 import BasicMenu from '../menu-button';
 import FilterAltRoundedIcon from '@mui/icons-material/FilterAltRounded';
 import { useHistory } from 'react-router-dom';
 import Cart from '../../cart';
 import SearchBar from './searchBar';
-
-// const Search = styled('div')(({ theme }) => ({
-//   position: 'relative',
-//   borderRadius: theme.shape.borderRadius,
-//   backgroundColor: '#3a003d', //alpha(theme.palette.common.white, 0.15),
-//   '&:hover': {
-//     transform: 'scale(1.05)',
-//   },
-//   marginRight: theme.spacing(2),
-//   marginLeft: 0,
-//   width: '100%',
-//   [theme.breakpoints.up('sm')]: {
-//     marginLeft: theme.spacing(3),
-//     width: 'auto',
-//   },
-// }));
-
-// const SearchIconWrapper = styled('div')(({ theme }) => ({
-//   padding: theme.spacing(0, 2),
-//   height: '100%',
-//   position: 'absolute',
-//   pointerEvents: 'none',
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center',
-// }));
-
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: 'inherit',
-//   '& .MuiInputBase-input': {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     // vertical padding + font size from searchIcon
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create('width'),
-//     width: '100%',
-//     [theme.breakpoints.up('md')]: {
-//       width: '20ch',
-//     },
-//   },
-// }));
+import MyProfile, { menuId } from './myProfile';
 
 export default function PrimarySearchAppBar() {
   const history = useHistory();
 
   const [drawer, toogleDrawer] = React.useState(true);
-  const childCompRef = useRef();
+  const drawer_ref = useRef();
   const cart_ref = useRef();
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const profile_ref = useRef();
 
   const goToHome = () => {
     history.push('/home');
@@ -101,100 +47,9 @@ export default function PrimarySearchAppBar() {
   };
 
   const menuClickHandler = e => {
-    childCompRef.current.toogle(drawer, e);
+    drawer_ref.current.toogle(drawer, e);
     toogleDrawer(prev => !prev);
   };
-
-  const handleProfileMenuOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = event => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
 
   return (
     <>
@@ -224,7 +79,7 @@ export default function PrimarySearchAppBar() {
               onClick={menuClickHandler}
             >
               <LunchDiningIcon sx={{ width: '30px', height: '30px' }} />
-              <TemporaryDrawer ref={childCompRef} />
+              <TemporaryDrawer ref={drawer_ref} />
             </IconButton>
             <img
               style={{ cursor: 'pointer' }}
@@ -237,15 +92,6 @@ export default function PrimarySearchAppBar() {
             <Box sx={{ flexGrow: 1 }}></Box>
             <Box sx={{ flexGrow: 1 }}>
               <SearchBar></SearchBar>
-              {/* <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search"
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-              </Search> */}
             </Box>
             <Box sx={{ flexGrow: 1 }}></Box>
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -288,23 +134,10 @@ export default function PrimarySearchAppBar() {
                 aria-label="account of current user"
                 aria-controls={menuId}
                 aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
+                onClick={e => profile_ref.current.open(e)}
                 color="primary"
               >
-                {/* <AccountCircle /> */}
                 <Avatar sx={{ bgcolor: '#3a003d' }} alt="user profile" src="" />
-              </IconButton>
-            </Box>
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="primary"
-              >
-                <MoreIcon />
               </IconButton>
             </Box>
           </Toolbar>
@@ -326,8 +159,7 @@ export default function PrimarySearchAppBar() {
             </IconButton>
           </div>
         </AppBar>
-        {renderMobileMenu}
-        {renderMenu}
+        <MyProfile ref={profile_ref}></MyProfile>
       </Box>
     </>
   );

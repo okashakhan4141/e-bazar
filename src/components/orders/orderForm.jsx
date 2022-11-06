@@ -1,8 +1,7 @@
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
 import styles from './order.module.css';
-import IconButton from '@mui/material/IconButton';
 
 const TrackOrderForm = props => {
   return (
@@ -12,14 +11,13 @@ const TrackOrderForm = props => {
         id="orderId"
         label="Order ID"
         type="email"
-        size="small"
-        placeholder="Enter your order Id"
         variant="standard"
+        helperText="Enter your order id"
         sx={{ width: '350px' }}
       />
-      <Button sx={{ margin: '0 10px' }} variant="contained">
-        Track
-      </Button>
+      <Fab sx={{ margin: '0 20px' }} color="primary" aria-label="add">
+        <SearchIcon />
+      </Fab>
     </div>
   );
 };

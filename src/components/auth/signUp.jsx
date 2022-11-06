@@ -7,12 +7,19 @@ import logo from '../../assets/logo-text.png';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { Divider } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 const SignUp = props => {
   const [codeSent, setCodeSent] = useState(false);
+  const [profileImage, setProfileImage] = useState('');
 
   const verifyPhoneNumber = () => {
     setCodeSent(true);
+  };
+
+  const onFileChange = event => {
+    setProfileImage(URL.createObjectURL(event.target.files[0]));
   };
 
   return (
@@ -21,7 +28,27 @@ const SignUp = props => {
       <Divider
         sx={{ backgroundColor: '#ff5a19', width: '80%', margin: '0 0 20px 0' }}
       ></Divider>
-      <p className={styles.sectionText}>* Basic Information *</p>
+      <Avatar
+        alt="user"
+        src={profileImage}
+        sx={{ width: 150, height: 150, margin: '0px 0 0 0' }}
+      />
+      <Button
+        variant="contained"
+        component="label"
+        endIcon={<PhotoCamera />}
+        size="small"
+        sx={{ m: 2 }}
+      >
+        Upload
+        <input
+          hidden
+          accept="image/*"
+          multiple
+          type="file"
+          onChange={onFileChange}
+        />
+      </Button>
       <div className={styles.signup}>
         <TextField
           id="firstName"
@@ -85,7 +112,7 @@ const SignUp = props => {
         <PasswordField label="Password" />
         <PasswordField label="Confirm Password" />
       </div>
-      <p className={styles.sectionText}>* Address Information *</p>
+      <p className={styles.sectionText}>* ADDRESS INFORMATION *</p>
       <div className={styles.signup}>
         <TextField
           id="postalCode"

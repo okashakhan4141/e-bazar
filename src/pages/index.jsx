@@ -21,6 +21,9 @@ const Pages = props => {
       <Route path="/home" exact>
         <Home />
       </Route>
+      <Route path="/user/profile/:userId" exact>
+        <p>user profile</p>
+      </Route>
       <Route path="/home/products/:category" exact>
         <Categories />
       </Route>

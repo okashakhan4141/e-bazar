@@ -2,30 +2,30 @@ import Products from '../components/products';
 import { carouselData } from '../utils/dummyData';
 import Slider from '../components/layouts/carousel';
 import Section from '../components/layouts/section';
-import BasicBreadcrumbs from '../components/layouts/breadcrumb';
+// import BasicBreadcrumbs from '../components/layouts/breadcrumb';
 import Paginator from '../components/layouts/paginator';
 
 import { dummyProducts } from '../utils/dummyData';
 
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 // import { cartActions } from '../store/cart';
-import { fetchCartData } from '../store/cart/actions';
+// import { fetchCartData } from '../store/cart/actions';
 
-const sliderOptions = {
-  indicators: true,
-  navButtonsAlwaysVisible: true,
-  fullHeightHover: false,
-  autoPlay: false,
-};
+// const sliderOptions = {
+//   indicators: true,
+//   navButtonsAlwaysVisible: true,
+//   fullHeightHover: false,
+//   autoPlay: false,
+// };
 
 const Home = props => {
-  const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart);
-  console.log(cart);
+  // const dispatch = useDispatch();
+  // const cart = useSelector(state => state.cart);
+  // console.log(cart);
 
-  const handleInc = () => {
-    dispatch(fetchCartData());
-  };
+  // const handleInc = () => {
+  //   dispatch(fetchCartData());
+  // };
 
   return (
     <>
@@ -37,9 +37,9 @@ const Home = props => {
         height="200px"
         options={sliderOptions}
       ></Slider> */}
-      <div>
+      {/* <div>
         <button onClick={handleInc}>INC</button>
-      </div>
+      </div> */}
       <Section title="Hot Products">
         <Products data={dummyProducts}></Products>
       </Section>
