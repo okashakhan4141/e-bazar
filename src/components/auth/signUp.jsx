@@ -10,9 +10,15 @@ import { Divider } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
+import { formatPhoneNumber } from '../../utils/numberFormatter';
+
 const SignUp = props => {
   const [codeSent, setCodeSent] = useState(false);
   const [profileImage, setProfileImage] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState({
+    number: '',
+    isValid: false,
+  });
 
   const verifyPhoneNumber = () => {
     setCodeSent(true);
@@ -22,17 +28,21 @@ const SignUp = props => {
     setProfileImage(URL.createObjectURL(event.target.files[0]));
   };
 
+  const phoneNumberChanged = event => {
+    const res = formatPhoneNumber(event.target.value);
+    setPhoneNumber({
+      number: res.formattedNumber,
+      isValid: res.isValid,
+    });
+  };
+
   return (
     <Paper elevation={10} className={styles.signupContainer}>
       <img className={styles.logo} src={logo} alt="e bazar" />
       <Divider
         sx={{ backgroundColor: '#ff5a19', width: '80%', margin: '0 0 20px 0' }}
       ></Divider>
-      <Avatar
-        alt="user"
-        src={profileImage}
-        sx={{ width: 150, height: 150, margin: '0px 0 0 0' }}
-      />
+      <Avatar alt="user" src={profileImage} sx={{ width: 150, height: 150 }} />
       <Button
         variant="contained"
         component="label"
@@ -73,8 +83,10 @@ const SignUp = props => {
           label="Phone Number"
           type="text"
           required
+          value={phoneNumber.number}
           placeholder="03XX XXXXXXX"
           variant="outlined"
+          onChange={phoneNumberChanged}
           helperText="Enter your phone number"
           sx={{ m: 1, width: '35ch' }}
         />
@@ -91,8 +103,9 @@ const SignUp = props => {
           />
         ) : (
           <Button
-            sx={{ m: 1, width: '300px', height: '55px' }}
+            sx={{ m: 1, width: '300px', height: '56px' }}
             variant="outlined"
+            disabled={!phoneNumber.isValid}
             onClick={verifyPhoneNumber}
           >
             Verify Phone Number
@@ -105,7 +118,6 @@ const SignUp = props => {
           required
           variant="outlined"
           placeholder="example@gmail.com"
-          //   fullWidth
           helperText="Enter your email address"
           sx={{ m: 1, width: '72.5ch' }}
         />
@@ -139,7 +151,6 @@ const SignUp = props => {
           required
           minRows={3}
           variant="outlined"
-          placeholder="Complete Address"
           multiline
           helperText="Enter your complete address"
           sx={{ m: 1, width: '72.5ch' }}

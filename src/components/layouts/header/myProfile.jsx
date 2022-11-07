@@ -45,7 +45,16 @@ const MyProfile = forwardRef((props, ref) => {
       onClose={() => handleMenuClose('')}
     >
       <MenuItem
-        sx={{ width: '150px' }}
+        sx={{ width: '200px' }}
+        onClick={() => handleMenuClose('/user/profile/yuftXdr6SEXRXrXrXr')}
+      >
+        <ListItemIcon>
+          <PersonIcon fontSize="small" />
+        </ListItemIcon>
+        <ListItemText>My Profile</ListItemText>
+      </MenuItem>
+      <MenuItem
+        sx={{ width: '200px' }}
         onClick={() => handleMenuClose('/auth/login')}
       >
         <ListItemIcon>
@@ -53,20 +62,11 @@ const MyProfile = forwardRef((props, ref) => {
         </ListItemIcon>
         <ListItemText>Login</ListItemText>
       </MenuItem>
-      <MenuItem sx={{ width: '150px' }} onClick={() => handleMenuClose('')}>
+      <MenuItem sx={{ width: '200px' }} onClick={() => handleMenuClose('')}>
         <ListItemIcon>
           <LogoutIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText>Logout</ListItemText>
-      </MenuItem>
-      <MenuItem
-        sx={{ width: '150px' }}
-        onClick={() => handleMenuClose('/user/profile/yuftXdr6SEXRXrXrXr')}
-      >
-        <ListItemIcon>
-          <PersonIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>Profile</ListItemText>
       </MenuItem>
     </Menu>
   );

@@ -94,7 +94,9 @@ export default function PrimarySearchAppBar() {
               <SearchBar></SearchBar>
             </Box>
             <Box sx={{ flexGrow: 1 }}></Box>
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Box
+              sx={{ display: { xs: 'none', md: 'flex' }, marginRight: '20px' }}
+            >
               <Tooltip title="Your Orders" arrow>
                 <IconButton
                   size="large"
